@@ -62,7 +62,7 @@ class OpenStudio::Model::ChillerElectricEIR
     if Gem::Version.new(OpenStudio.openStudioVersion) < Gem::Version.new('1.5.4')
       effs << [compressorMotorEfficiency, 'Compressor Motor Efficiency']
     else
-      effs << [fractionofCompressorElectricConsumptionRejectedbyCondenser, 'Fraction of Compressor Electric Power Rejected by Condenser']
+      effs << [fractionofCompressorElectricConsumptionRejectedbyCondenser, 'Fraction of Compressor Electric Consumption Rejected by Condenser']
     end
     return effs
   end
