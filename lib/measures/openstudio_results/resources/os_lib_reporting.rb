@@ -4216,7 +4216,7 @@ module OsLib_Reporting
     # loop through each year and record the cash flow
     for i in 0..(length_yrs - 1) do
       new_yr = base_yr + i
-      yr = "January         #{new_yr.round}" # note: two spaces removed from earlier version of sql file
+      yr = "January #{new_yr.round}" # note: two spaces removed from earlier version of sql file
       ann_cap_cash = 0.0
       ann_om_cash = 0.0
       ann_energy_cash = 0.0
