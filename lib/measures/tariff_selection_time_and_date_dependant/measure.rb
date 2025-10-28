@@ -464,11 +464,12 @@ class TariffSelectionTimeAndDateDependant < OpenStudio::Measure::EnergyPlusMeasu
     end
 
     # disthtg tariff object
+    Gem::Version.new(OpenStudio.openStudioVersion) < Gem::Version.new('3.8.0') ? output_meter_name = 'DistrictHeating:Facility' : output_meter_name = 'DistrictHeatingWater:Facility'
     if args['disthtg_rate'] > 0
       new_object_string = "
       UtilityCost:Tariff,
-        DistrictHeating Tariff,                             !- Name
-        DistrictHeating:Facility,                           !- Output Meter Name
+        DistrictHeatingWater Tariff,            !- Name
+        #{output_meter_name},                   !- Output Meter Name
         Therm,                                  !- Conversion Factor Choice
         ,                                       !- Energy Conversion Factor
         ,                                       !- Demand Conversion Factor
@@ -483,8 +484,8 @@ class TariffSelectionTimeAndDateDependant < OpenStudio::Measure::EnergyPlusMeasu
       # make UtilityCost:Charge:Simple objects for disthtg
       new_object_string = "
       UtilityCost:Charge:Simple,
-        DistrictHeatingTariffEnergyCharge, !- Name
-        DistrictHeating Tariff,                             !- Tariff Name
+        DistrictHeatingWaterTariffEnergyCharge, !- Name
+        DistrictHeatingWater Tariff,            !- Tariff Name
         totalEnergy,                            !- Source Variable
         Annual,                                 !- Season
         EnergyCharges,                          !- Category Variable Name
