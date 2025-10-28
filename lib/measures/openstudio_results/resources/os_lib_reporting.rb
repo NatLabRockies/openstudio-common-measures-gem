@@ -4259,7 +4259,8 @@ module OsLib_Reporting
         ann_gas_cash += gas.get
       end
 
-      dist_htg_query = "SELECT Value FROM tabulardatawithstrings WHERE ReportName='Life-Cycle Cost Report' AND ReportForString='Entire Facility' AND TableName='Energy and Water Cost Cash Flows (Without Escalation)' AND RowName='#{yr}' AND ColumnName='DistrictHeating'"
+      Gem::Version.new(OpenStudio.openStudioVersion) < Gem::Version.new('3.8.0') ? fuel_type_str_district_htg = 'DistrictHeating' : fuel_type_str_district_htg = 'DistrictHeatingWater'
+      dist_htg_query = "SELECT Value FROM tabulardatawithstrings WHERE ReportName='Life-Cycle Cost Report' AND ReportForString='Entire Facility' AND TableName='Energy and Water Cost Cash Flows (Without Escalation)' AND RowName='#{yr}' AND ColumnName='#{fuel_type_str_district_htg}'"
       dist_htg = sqlFile.execAndReturnFirstDouble(dist_htg_query)
       if dist_htg.is_initialized
         ann_dist_htg_cash += dist_htg.get
