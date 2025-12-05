@@ -6,12 +6,8 @@
 class OpenStudio::Model::ZoneHVACLowTempRadiantVarFlow
   def maxWaterFlowRate
     vals = []
-    if coolingCoil.maxWaterFlowRate.is_initialized
-      vals << coolingCoil.maxWaterFlowRate.get
-    end
-    if heatingCoil.maxWaterFlowRate.is_initialized
-      vals << heatingCoil.maxWaterFlowRate.get
-    end
+    vals << coolingCoil.get.maxWaterFlowRate.get if coolingCoil.is_initialized && coolingCoil.get.maxWaterFlowRate.is_initialized
+    vals << heatingCoil.get.maxWaterFlowRate.get if heatingCoil.is_initialized && heatingCoil.get.maxWaterFlowRate.is_initialized
     if vals.size.zero?
       OpenStudio::OptionalDouble.new
     else
@@ -20,9 +16,9 @@ class OpenStudio::Model::ZoneHVACLowTempRadiantVarFlow
   end
 
   def maxWaterFlowRateAutosized
-    if coolingCoil.maxWaterFlowRate.is_initialized
+    if coolingCoil.is_initialized && coolingCoil.get.maxWaterFlowRate.is_initialized
       return OpenStudio::OptionalBool.new(false)
-    elsif heatingCoil.maxWaterFlowRate.is_initialized
+    elsif heatingCoil.is_initialized && heatingCoil.get.maxWaterFlowRate.is_initialized
       return OpenStudio::OptionalBool.new(false)
     else
       return OpenStudio::OptionalBool.new(true)
@@ -31,8 +27,8 @@ class OpenStudio::Model::ZoneHVACLowTempRadiantVarFlow
 
   def performanceCharacteristics
     effs = []
-    effs += heatingCoil.performanceCharacteristics
-    effs += coolingCoil.performanceCharacteristics
+    effs += coolingCoil.get.performanceCharacteristics if coolingCoil.is_initialized
+    effs += heatingCoil.get.performanceCharacteristics if heatingCoil.is_initialized
     return effs
   end
 end
