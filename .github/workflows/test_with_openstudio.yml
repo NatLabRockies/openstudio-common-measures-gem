@@ -12,12 +12,12 @@ jobs:
       S3_BUCKET: ext-gem-dashboard
 
     container: # Define the Docker container for the job. All subsequent steps run inside it.
-      image: nrel/openstudio:3.10.0
+      image: nrel/openstudio:dev-3.11.0-rc2
       options: -u root -e "LANG=en_US.UTF-8" # These options are passed to the 'docker run' command internally
 
     steps:
       - name: Checkout Repository
-        # The repository will be checked out inside the 'nrel/openstudio:3.10.0' container
+        # The repository will be checked out inside the 'nrel/openstudio:3.11.0' container
         uses: actions/checkout@v4 # Use v4 for better security and features
         with:
           submodules: true # Set to true if your repository uses Git submodules
@@ -39,7 +39,7 @@ jobs:
           apt-get install -y nodejs
 
           # Install AWS CLI v2
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          curl --retry 5 --retry-connrefused "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
           unzip awscliv2.zip
           ./aws/install
 
@@ -56,7 +56,7 @@ jobs:
         shell: bash # Specify the shell if needed, though bash is default for Ubuntu runners
         run: |
           # Fix git ownership issue in container
-          git config --global --add safe.directory /__w/openstudio-load-flexibility-measures-gem/openstudio-load-flexibility-measures-gem
+          git config --global --add safe.directory /__w/openstudio-common-measures-gem/openstudio-common-measures-gem
           
           echo "OpenStudio Version: $(openstudio --version)"
           echo "Ruby Version: $(ruby -v)"
@@ -79,6 +79,7 @@ jobs:
           ls -al ./test # Verify the output directory exists and contains files
 
       - name: Configure AWS Credentials
+        if: success() || failure()
         # This step is crucial for authenticating with AWS S3
         uses: aws-actions/configure-aws-credentials@v4 # Use v4 for updated features
         with:
@@ -87,6 +88,7 @@ jobs:
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }} # Replace with your AWS region, e.g., us-east-1
 
       - name: Sync files to S3 with branch and build in path
+        if: success() || failure()
         shell: bash
         run: |
           echo "Deploying to s3://${{ env.S3_BUCKET }}/${{ env.DEPLOY_PATH }}/"
@@ -102,6 +104,7 @@ jobs:
           echo dir_name=$dir_name >> $GITHUB_ENV # Save the directory name to an environment variable for later use
 
       - name: Archive static site as artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: static-html-artifact
