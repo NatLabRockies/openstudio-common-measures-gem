@@ -3,8 +3,8 @@
   <schema_version>3.1</schema_version>
   <name>generic_qaqc</name>
   <uid>d58d6b29-69ba-4915-b907-3c2c37ddb7c7</uid>
-  <version_id>cd027531-07d3-47a6-a25d-19e8a28403ff</version_id>
-  <version_modified>2025-08-08T03:48:28Z</version_modified>
+  <version_id>32960d7f-45bd-4502-acf7-841d0ea28524</version_id>
+  <version_modified>2026-06-08T06:43:45Z</version_modified>
   <xml_checksum>0A3BF61C</xml_checksum>
   <class_name>GenericQAQC</class_name>
   <display_name>Generic QAQC</display_name>
@@ -450,7 +450,7 @@
       <version>
         <software_program>OpenStudio</software_program>
         <identifier>2.0.0</identifier>
-        <min_compatible>3.8.0</min_compatible>
+        <min_compatible>3.11.0</min_compatible>
       </version>
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
@@ -521,13 +521,13 @@
       <filename>check_mech_sys_efficiency.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>E470E5E3</checksum>
+      <checksum>366300C3</checksum>
     </file>
     <file>
       <filename>check_mech_sys_part_load_eff.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>B6AC9F08</checksum>
+      <checksum>8366CC75</checksum>
     </file>
     <file>
       <filename>check_mech_sys_type.rb</filename>
