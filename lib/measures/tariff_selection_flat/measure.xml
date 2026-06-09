@@ -3,8 +3,8 @@
   <schema_version>3.1</schema_version>
   <name>tariff_selection_flat</name>
   <uid>539c3e8e-6c41-4f50-ac61-6cbbf1ee1b55</uid>
-  <version_id>90dae49f-fb67-46eb-96fa-0560a97071a6</version_id>
-  <version_modified>2025-08-01T14:35:32Z</version_modified>
+  <version_id>b67f0e4d-c743-4ba2-a79a-462f92224860</version_id>
+  <version_modified>2026-06-09T20:14:32Z</version_modified>
   <xml_checksum>FBDC6D11</xml_checksum>
   <class_name>TariffSelectionFlat</class_name>
   <display_name>Tariff Selection-Flat</display_name>
@@ -236,7 +236,7 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>AE5AA325</checksum>
+      <checksum>568C953A</checksum>
     </file>
     <file>
       <filename>EnvelopeAndLoadTestModel_01.osm</filename>
