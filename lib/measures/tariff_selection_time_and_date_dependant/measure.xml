@@ -3,8 +3,8 @@
   <schema_version>3.1</schema_version>
   <name>tariff_selection_time_and_date_dependant</name>
   <uid>a890e296-b357-432f-8d53-6428d9bf3c0a</uid>
-  <version_id>1d80d526-4a93-4017-b973-c29d945233d4</version_id>
-  <version_modified>2025-08-01T14:35:30Z</version_modified>
+  <version_id>d3aa2a06-c6b2-4736-96a3-766405ee546d</version_id>
+  <version_modified>2026-06-09T20:14:39Z</version_modified>
   <xml_checksum>135F7E88</xml_checksum>
   <class_name>TariffSelectionTimeAndDateDependant</class_name>
   <display_name>Tariff Selection-Time and Date Dependant</display_name>
@@ -290,7 +290,7 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>D8EDD118</checksum>
+      <checksum>A248A50E</checksum>
     </file>
     <file>
       <filename>EnvelopeAndLoadTestModel_01.osm</filename>

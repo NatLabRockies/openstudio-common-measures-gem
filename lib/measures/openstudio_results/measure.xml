@@ -3,8 +3,8 @@
   <schema_version>3.1</schema_version>
   <name>openstudio_results</name>
   <uid>a25386cd-60e4-46bc-8b11-c755f379d916</uid>
-  <version_id>b5b4c945-c608-47fb-9596-08234e7c2a0f</version_id>
-  <version_modified>2025-08-08T03:48:25Z</version_modified>
+  <version_id>29f574c5-6089-4ba8-8c56-7c3214b5944e</version_id>
+  <version_modified>2026-06-09T20:14:08Z</version_modified>
   <xml_checksum>557BF06F</xml_checksum>
   <class_name>OpenStudioResults</class_name>
   <display_name>OpenStudio Results</display_name>
@@ -797,13 +797,13 @@
       <filename>Siz.ChillerElectricEIR.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>F2210A57</checksum>
+      <checksum>BBED4519</checksum>
     </file>
     <file>
       <filename>Siz.ChillerHeaterPerformanceElectricEIR.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>1E0C0AD6</checksum>
+      <checksum>2E37D5CF</checksum>
     </file>
     <file>
       <filename>Siz.CoilCoolingDXMultiSpeed.rb</filename>
@@ -827,7 +827,7 @@
       <filename>Siz.CoilCoolingDXTwoSpeed.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>E513D800</checksum>
+      <checksum>71E9191E</checksum>
     </file>
     <file>
       <filename>Siz.CoilCoolingDXTwoStageWithHumidityControlMode.rb</filename>
@@ -1127,7 +1127,7 @@
       <filename>Siz.FanSystemModel.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>335E730E</checksum>
+      <checksum>A4C0F52E</checksum>
     </file>
     <file>
       <filename>Siz.FanVariableVolume.rb</filename>
@@ -1397,7 +1397,7 @@
       <filename>Siz.ZoneHVACLowTempRadiantVarFlow.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>A760C489</checksum>
+      <checksum>4F218062</checksum>
     </file>
     <file>
       <filename>Siz.ZoneHVACPackagedTerminalAirConditioner.rb</filename>
@@ -1475,7 +1475,7 @@
       <filename>os_lib_reporting.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>8DEAE75A</checksum>
+      <checksum>BEF185BF</checksum>
     </file>
     <file>
       <filename>report.html.erb</filename>
