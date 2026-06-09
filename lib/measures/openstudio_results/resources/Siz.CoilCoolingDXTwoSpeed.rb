@@ -46,5 +46,6 @@ class OpenStudio::Model::CoilCoolingDXTwoSpeed
       effs << [highSpeedEvaporativeCondenserEffectiveness, 'High Speed Evaporative Condenser Effectiveness']
       effs << [lowSpeedEvaporativeCondenserEffectiveness, 'Low Speed Evaporative Condenser Effectiveness']
     end
+    return effs
   end
 end
