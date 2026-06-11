@@ -59,7 +59,7 @@ module OsLib_QAQC
         # get curve and evaluate
         electric_input_to_cooling_output_ratio_function_of_PLR = component.electricInputToCoolingOutputRatioFunctionOfPLR
         curve_40_pct = electric_input_to_cooling_output_ratio_function_of_PLR.evaluate(0.4)
-        curve_80_pct = electric_input_to_cooling_output_ratio_function_of_PLR.evaluate(0.8)
+        curve_80_pct = electric_input_to_cooling_output_ratio_function_of_PLR.evaluate(0.8)    
 
         # find ac properties
         if use_old_gem_code
@@ -110,7 +110,7 @@ module OsLib_QAQC
         if use_old_gem_code
           capacity_w = component.find_capacity
         else
-          capacity_w = std.chiller_electric_eir_find_capacity(component)
+          capacity_w = OpenstudioStandards::HVAC.chiller_electric_get_capacity(component)
         end
         capacity_tons = OpenStudio.convert(capacity_w, 'W', 'ton').get
 
@@ -172,7 +172,7 @@ module OsLib_QAQC
         if use_old_gem_code
           capacity_w = component.find_capacity
         else
-          capacity_w = std.coil_cooling_dx_single_speed_find_capacity(component)
+          capacity_w = OpenstudioStandards::HVAC.coil_cooling_dx_single_speed_get_capacity(component)
         end
         capacity_btu_per_hr = OpenStudio.convert(capacity_w, 'W', 'Btu/hr').get
 
@@ -183,7 +183,7 @@ module OsLib_QAQC
             ac_props = component.model.find_object($os_standards['unitary_acs'], search_criteria, capacity_btu_per_hr, Date.today)
           end
         else
-          if std.coil_dx_heat_pump?(component)
+          if OpenstudioStandards::HVAC.coil_dx_heat_pump?(component)
             ac_props = std.model_find_object(std.standards_data['heat_pumps'], search_criteria, capacity_btu_per_hr, Date.today)
           else
             ac_props = std.model_find_object(std.standards_data['unitary_acs'], search_criteria, capacity_btu_per_hr, Date.today)
@@ -237,7 +237,7 @@ module OsLib_QAQC
         if use_old_gem_code
           capacity_w = component.find_capacity
         else
-          capacity_w = std.coil_cooling_dx_two_speed_find_capacity(component)
+          capacity_w = OpenstudioStandards::HVAC.coil_cooling_dx_two_speed_get_capacity(component)
         end
         capacity_btu_per_hr = OpenStudio.convert(capacity_w, 'W', 'Btu/hr').get
 
@@ -294,7 +294,7 @@ module OsLib_QAQC
         if use_old_gem_code
           capacity_w = component.find_capacity
         else
-          capacity_w = std.coil_heating_dx_single_speed_find_capacity(component)
+          capacity_w = OpenstudioStandards::HVAC.coil_heating_dx_single_speed_get_capacity(component)
         end
         capacity_btu_per_hr = OpenStudio.convert(capacity_w, 'W', 'Btu/hr').get
 
@@ -387,7 +387,7 @@ module OsLib_QAQC
         if use_old_gem_code
           target_fan.set_control_type('Multi Zone VAV with Static Pressure Reset')
         else
-          std.fan_variable_volume_set_control_type(target_fan, 'Multi Zone VAV with VSD and Static Pressure Reset')
+          OpenstudioStandards::HVAC.fan_variable_volume_set_control_type(target_fan, control_type: 'Multi Zone VAV with VSD and Static Pressure Reset')
         end
 
         # get coeficents for fan

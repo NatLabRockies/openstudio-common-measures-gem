@@ -234,7 +234,7 @@ module OsLib_QAQC
         if use_old_gem_code
           motor_bhp = component.brake_horsepower
         else
-          motor_bhp = std.pump_brake_horsepower(component)
+          motor_bhp = OpenstudioStandards::HVAC.pump_get_brake_horsepower(component)
         end
         next if motor_bhp == 0.0
         if use_old_gem_code
@@ -260,7 +260,7 @@ module OsLib_QAQC
         if use_old_gem_code
           motor_bhp = component.brake_horsepower
         else
-          motor_bhp = std.pump_brake_horsepower(component)
+          motor_bhp = OpenstudioStandards::HVAC.pump_get_brake_horsepower(component)
         end
         next if motor_bhp == 0.0
         if use_old_gem_code

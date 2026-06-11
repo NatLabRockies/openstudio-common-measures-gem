@@ -5,15 +5,15 @@
 
 class OpenStudio::Model::FanSystemModel
   def maxAirFlowRate
-    if designMaximumFlowRate.is_initialized
-      designMaximumFlowRate
+    if designMaximumAirFlowRate.is_initialized
+      designMaximumAirFlowRate
     else
-      autosizedDesignMaximumFlowRate
+      autosizedDesignMaximumAirFlowRate
     end
   end
 
   def maxAirFlowRateAutosized
-    if designMaximumFlowRate.is_initialized
+    if designMaximumAirFlowRate.is_initialized
       # Not autosized if hard size field value present
       return OpenStudio::OptionalBool.new(false)
     else
