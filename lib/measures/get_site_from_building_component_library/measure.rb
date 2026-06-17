@@ -4,7 +4,7 @@
 # *******************************************************************************
 
 # see the URL below for information on how to write OpenStudio measures
-# http://nrel.github.io/OpenStudio-user-documentation/measures/measure_writing_guide/
+# http://nlr.github.io/OpenStudio-user-documentation/measures/measure_writing_guide/
 
 # start the measure
 class GetSiteFromBuildingComponentLibrary < OpenStudio::Measure::ModelMeasure
@@ -111,10 +111,10 @@ class GetSiteFromBuildingComponentLibrary < OpenStudio::Measure::ModelMeasure
     require 'json'
 
     # dev search string for internal testing
-    # search_string = "http://bcl7.development.nrel.gov/api/search/location:'#{zipcode}'.json?fq[]=bundle:nrel_component&fq[]=sm_vid_Component_Tags:Site&api_version=2.0"
+    # search_string = "http://bcl7.development.nlr.gov/api/search/location:'#{zipcode}'.json?fq[]=bundle:nlr_component&fq[]=sm_vid_Component_Tags:Site&api_version=2.0"
 
     # udpated to use https vs. http
-    search_string = "https://bcl.nrel.gov/api/search/location:'#{zipcode}'.json?fq[]=bundle:nrel_component&fq[]=sm_vid_Component_Tags:Site&api_version=2.0"
+    search_string = "https://bcl.nlr.gov/api/search/location:'#{zipcode}'.json?fq[]=bundle:nlr_component&fq[]=sm_vid_Component_Tags:Site&api_version=2.0"
 
     runner.registerInfo(search_string)
     # briefly I needed ssl_verify_mode:0 but now it seems to work again without it

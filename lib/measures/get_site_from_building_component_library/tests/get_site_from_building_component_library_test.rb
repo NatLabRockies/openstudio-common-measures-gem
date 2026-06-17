@@ -77,7 +77,7 @@ class GetSiteFromBuildingComponentLibraryTest < MiniTest::Unit::TestCase
   end
 
   def test_default_arguments
-    skip 'do not want to test for now measures that get content from BCL'
+    #skip 'do not want to test for now measures that get content from BCL'
     args = {}
 
     apply_measure_to_model(__method__.to_s.gsub('test_', ''), args, 'example_model.osm')
